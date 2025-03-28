@@ -30,26 +30,20 @@ function showMobileMenu() {
 function imgtoDiv() {
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-    console.log("width",vw,"height",vh)
+    
     if (vw <= 480) {
         document.getElementsByClassName("menu")[0].classList.add("hide");
         document.getElementById("mobiletop").style.display = "block";
-    } else if (document.getElementsByClassName("menu")[0].classList.contains("hide")){
+    } else if (document.getElementsByClassName("menu")[0].classList.contains("hide")) {
         document.getElementsByClassName("menu")[0].classList.remove("hide");
         document.getElementById("mobiletop").style.display = "none";
+        document.getElementById("mobilemenu").classList.add("hide")
+        
     } else {
         document.getElementById("mobiletop").style.display = "none";
+        document.getElementById("mobilemenu").classList.add("hide")
     }
 
-    if (vh <= 96) {
-        console.log("if triggered")
-        document.getElementsByClassName("menu")[0].style.height = "50% !important;";
-        document.getElementsByClassName("name")[0].style.fontSize = "1.5rem !important;";
-        document.getElementsByClassName("name")[0].style.fontWeight = "normal !important;";
-        document.querySelector("li a").style.padding = "4px 8px !important";
-            
-    }
-    
     if (vw < 1200) {
         columns = 2;
     } else {
