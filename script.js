@@ -19,9 +19,18 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+function showMobileMenu() {
+    document.getElementById("mobilemenu").classList.contains("hide") ?
+    document.getElementById("mobilemenu").classList.remove("hide") :
+    document.getElementById("mobilemenu").classList.add("hide")
+    
+    
+}
+
 function imgtoDiv() {
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    console.log("width",vw,"height",vh)
     if (vw <= 480) {
         document.getElementsByClassName("menu")[0].classList.add("hide");
         document.getElementById("mobiletop").style.display = "block";
@@ -30,6 +39,15 @@ function imgtoDiv() {
         document.getElementById("mobiletop").style.display = "none";
     } else {
         document.getElementById("mobiletop").style.display = "none";
+    }
+
+    if (vh <= 96) {
+        console.log("if triggered")
+        document.getElementsByClassName("menu")[0].style.height = "50% !important;";
+        document.getElementsByClassName("name")[0].style.fontSize = "1.5rem !important;";
+        document.getElementsByClassName("name")[0].style.fontWeight = "normal !important;";
+        document.querySelector("li a").style.padding = "4px 8px !important";
+            
     }
     
     if (vw < 1200) {
