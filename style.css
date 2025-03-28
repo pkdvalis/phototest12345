@@ -48,7 +48,7 @@ body {
   -webkit-user-select: text; /* Safari */
   -ms-user-select:     text; /* IE 10 and IE 11 */
   user-select:         text; /* Standard syntax */
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .description {
@@ -147,60 +147,7 @@ ul {
 .hide {
   display: none;
 }
-@media onlyscreen and (max-height: 96px) {
-  .menu{
-     height: 100% !important;
-     max-height: vh;
-     position: fixed;
- }
- .name {
-   font-size: 1.5rem;
-   font-weight: normal;
- }
- .description {
-     font-size: 0.5rem;
-     font-weight:200;
- }
- 
- ul {
-     font-size: 1rem;
-     font-weight: 300;
-     list-style-type:none;
-     margin: 0;
-     padding: 0;
-     
-   }
-   
-   li a {
-     display: block;
-     color: #000;
-     padding: 4px 8px !important;
-     text-decoration: none;
-   }
-   
-   li a.active {
-     text-decoration-line: underline;
-   }
-   
-   li a:hover:not(.active) {
-     text-decoration-line: underline;
-     color: darkslategrey;
-   }
- 
- .social {
-     display: flex;
- }
- 
-   .social a {
-     color: black;
-     display: block;
-     margin: -1px 4px;
-     width: 15px;
-     
-         
-   }
- 
-}
+
 
 @media only screen and (max-width: 480px) {
   * {

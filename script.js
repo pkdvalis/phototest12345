@@ -65,8 +65,8 @@ function imgtoDiv() {
     for (let i = 0; i < totalImages; i += columns) {
         for (let column = 1; column <= columns; column++) {
             let image = i+column-1;
+            images.item(image).remove();
             if (images.item(image).id != "displayImage")     {
-                images.item(image).remove();
                 images.item(image).onclick = function() {displayImg(image)};
                 document.getElementById(column).appendChild(images.item(image));
             }
@@ -95,7 +95,11 @@ window.addEventListener("resize", () => {
  function displayImg(i) {
     curImageDisplay = i;
     const modal = document.querySelector(".overlay")
-    modal.innerHTML += "<img id='displayimage' src='' />";
+    modal.innerHTML = `
+    <p class="close" onclick="closeModal()">Esc</p>
+    <a class="prev" onclick="prevImage()">&#10094;</a>
+    <a class="next" onclick="nextImage()">&#10095;</a>
+    <img id="displayimage" src="">`
     let displayImage = document.querySelector("#displayimage");
     displayImage.src = images.item(i).getAttribute("src").replace(/webp/g,"jpg");
     modal.classList.remove("hide");
