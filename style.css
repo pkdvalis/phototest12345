@@ -206,6 +206,7 @@ ul {
   border-radius: 3px;
   user-select: none;
   -webkit-user-select: none;
+  z-index: 25;
   
 }
 
