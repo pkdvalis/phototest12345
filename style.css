@@ -119,6 +119,31 @@ ul {
 }
 
 
+@media only screen and (max-width: 480px) {
+  * {
+    padding:0px;
+  border: none;
+  }
+  body {
+    padding:0px;
+    border: none;
+  }
+  #displayimage {
+    border: none;
+    position:fixed;
+    left:0;
+    margin: 0px;
+    padding: 0;
+    display: block;
+    object-fit: contain;
+    width: 100%;
+  }
+  .gallery {
+    margin-left: 0px;
+    
+  }
+}
+
 #displayimage {
   margin: auto;
   display: block;

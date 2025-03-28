@@ -22,6 +22,11 @@ document.addEventListener("keydown", (e) => {
 function imgtoDiv() {
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    if (vw <= 480) {
+        document.getElementsByClassName("menu")[0].classList.add("hide");
+    } else if (document.getElementsByClassName("menu")[0].classList.contains("hide")){
+        document.getElementsByClassName("menu")[0].classList.remove("hide");
+    }
     
     if (vw < 850) {
         columns = 1;
