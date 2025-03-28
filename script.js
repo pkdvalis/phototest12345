@@ -29,7 +29,7 @@ function imgtoDiv() {
     }
     
     if (vw < 850) {
-        columns = 1;
+        columns = 2;
     } else if (vw < 1200) {
         columns = 2;
     } else {
