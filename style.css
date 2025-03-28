@@ -25,6 +25,7 @@ body {
   position: fixed;
   right: 10px;
   cursor: pointer;
+  font-size: 2rem;
   
 }
 
@@ -36,6 +37,8 @@ body {
   background-color: white;
   
 }
+
+
 
 .menu{
    -webkit-user-select: none; /* Safari */
