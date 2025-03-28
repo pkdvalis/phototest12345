@@ -24,13 +24,15 @@ function imgtoDiv() {
     vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
     if (vw <= 480) {
         document.getElementsByClassName("menu")[0].classList.add("hide");
+        document.getElementById("mobiletop").style.display = "block";
     } else if (document.getElementsByClassName("menu")[0].classList.contains("hide")){
         document.getElementsByClassName("menu")[0].classList.remove("hide");
+        document.getElementById("mobiletop").style.display = "none";
+    } else {
+        document.getElementById("mobiletop").style.display = "none";
     }
     
-    if (vw < 850) {
-        columns = 2;
-    } else if (vw < 1200) {
+    if (vw < 1200) {
         columns = 2;
     } else {
         columns = 3;

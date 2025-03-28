@@ -23,7 +23,7 @@ body {
   -webkit-user-select: text; /* Safari */
   -ms-user-select:     text; /* IE 10 and IE 11 */
   user-select:         text; /* Standard syntax */
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: bold;
 }
 .description {
