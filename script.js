@@ -57,6 +57,7 @@ function imgtoDiv() {
     }
     document.getElementsByClassName('gallery')[0].innerHTML = '';
 
+    //add div columns
     let imgPerColumn = Math.floor(totalImages/columns);
     for (let column = 1; column <= columns; column++) {
         let newDiv = document.createElement("div");
@@ -65,7 +66,8 @@ function imgtoDiv() {
 
     }
 
-    console.log(totalImages)
+    //add images to div columns
+    let regex = /([^.]*$)/;
     for (let i = 0; i < totalImages; i += columns) {
         for (let column = 1; column <= columns; column++) {
             let image = i+column-1;
@@ -74,24 +76,10 @@ function imgtoDiv() {
                 images.item(image).onclick = function() {displayImg(image)};
                 document.getElementById(column).appendChild(images.item(image));
             }
-            console.log(column,image)
+    
         }
 
     }
-
-
-    /* for (let j = 1; j <= columns; j++) {
-        for (let i = start; i < imgPerColumn; i++) {
-            if (images.item(i).id != "displayImage")     {
-                images.item(i).remove();
-                images.item(i).onclick = function() {displayImg(i)};
-                document.getElementById(j).appendChild(images.item(i));
-            }
-        }
-        start = imgPerColumn
-        imgPerColumn = start+imgPerColumn;
-    } */
-
 }
 
 window.addEventListener("resize", () => { 
@@ -115,7 +103,7 @@ window.addEventListener("resize", () => {
     const modal = document.querySelector(".overlay")
     modal.innerHTML += "<img id='displayimage' src='' />";
     let displayImage = document.querySelector("#displayimage");
-    displayImage.src = images.item(i).getAttribute("src");
+    displayImage.src = images.item(i).getAttribute("src").replace(/webp/g,"jpg");
     modal.classList.remove("hide");
     //document.querySelector("#displayimage").onclick = closeModal();
  }
