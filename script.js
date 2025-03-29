@@ -1,11 +1,10 @@
 let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 const images = document.querySelectorAll("img");
+let displayImages = [];
 const totalImages = document.querySelectorAll("img").length
 let curImageDisplay;
 const modal = document.querySelector(".overlay")
-
-
 
 document.addEventListener("keydown", (e) => {
     //load text
@@ -92,6 +91,7 @@ window.addEventListener("resize", () => {
  
 
  function displayImg(i) {
+    console.log("dispinfunc",displayImages[i])
     curImageDisplay = i;
     modal.innerHTML = `
     <p class="close" onclick="closeModal()">Esc</p>
@@ -99,7 +99,7 @@ window.addEventListener("resize", () => {
     <a class="next" onclick="nextImage()">&#10095;</a>
     <img id="displayimage" src="">`
     let displayImage = document.querySelector("#displayimage");
-    displayImage.src = images.item(i).getAttribute("src").replace(/webp/g,"jpg");
+    displayImage.src = displayImages[i].src;
     modal.classList.remove("hide");
     displayImage.addEventListener("click", null);
     modal.addEventListener("click", (e) => {
@@ -118,6 +118,15 @@ function prevImage() {
 }
 
 imgtoDiv();
+
+//preload Display Images
+for (let i = 0; i < totalImages; i++) {
+    displayImages[i] = new Image();
+    //console.log(displayImages[i],images.item(i))
+    displayImages[i].src = images.item(i).getAttribute("src").replace(/webp/g,"jpg");
+    console.log("displayiamges",displayImages[i],"image",images.item(i))
+ }
+  
 
 
 
