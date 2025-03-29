@@ -67,13 +67,14 @@ function imgtoDiv() {
         
         for (let column = 1; column <= columns; column++) {
             let image = i+column-1;
-            
-            images.item(image).remove();
-            if (images.item(image).id != "displayImage")     {
+            console.log(image, images.item(image))
+            if (images.item(image)) {
+                images.item(image).remove();
                 images.item(image).onclick = function() {displayImg(image)};
                 console.log("width:", images.item(image).naturalWidth)
                 document.getElementById(column).appendChild(images.item(image));
             }
+        
     
         }
 
@@ -124,7 +125,7 @@ for (let i = 0; i < totalImages; i++) {
     displayImages[i] = new Image();
     //console.log(displayImages[i],images.item(i))
     displayImages[i].src = images.item(i).getAttribute("src").replace(/webp/g,"jpg");
-    console.log("displayiamges",displayImages[i],"image",images.item(i))
+    console.log("displayiamges",displayImages[i])
  }
   
 
