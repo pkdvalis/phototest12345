@@ -63,11 +63,18 @@ function imgtoDiv() {
     //add images to div columns
     let regex = /([^.]*$)/;
     for (let i = 0; i < totalImages; i += columns) {
+        
         for (let column = 1; column <= columns; column++) {
             let image = i+column-1;
+            
+            images.item(image).onload = function() {
+                console.log(this.width, this.naturalWidth);
+              }
+
             images.item(image).remove();
             if (images.item(image).id != "displayImage")     {
                 images.item(image).onclick = function() {displayImg(image)};
+                console.log("width:", images.item(image).naturalWidth)
                 document.getElementById(column).appendChild(images.item(image));
             }
     

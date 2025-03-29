@@ -38,6 +38,8 @@ body {
   
 }
 
+
+
 .menu{
    -webkit-user-select: none; /* Safari */
    -ms-user-select: none; /* IE 10 and IE 11 */
@@ -196,8 +198,7 @@ ul {
 #displayimage {
   margin: auto;
   display: block;
-  height: 93%;
-  max-height: calc(vh - 25);
+  height: 95%;
   border: 24px solid white;
 }
 
