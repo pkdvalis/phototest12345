@@ -103,8 +103,10 @@ window.addEventListener("resize", () => {
     modal.classList.remove("hide");
     displayImage.addEventListener("click", null);
     modal.addEventListener("click", (e) => {
-        console.log((e.target.closest(displayImage)));
-        closeModal(e);
+        console.log((e.target));
+        if (e.target == modal){
+            closeModal(e);
+        }
     },false)
  }
 

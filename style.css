@@ -38,8 +38,6 @@ body {
   
 }
 
-
-
 .menu{
    -webkit-user-select: none; /* Safari */
    -ms-user-select: none; /* IE 10 and IE 11 */
@@ -153,13 +151,12 @@ ul {
 
 
 @media only screen and (max-width: 480px) {
-  * {
-    padding:0px;
-    border: none;
-  }
+  
   body {
     padding:0px;
     border: none;
+    margin:0px;
+    width: 100%;
   }
   .gallery {
     margin-left: 0px;
@@ -169,7 +166,7 @@ ul {
   .gallery img {
     width: 90%;
     transition: filter 0.25s;
-    margin: 10%
+    margin: 10px;
     
 }
   #displayimage {
@@ -200,6 +197,7 @@ ul {
   display: block;
   height: 95%;
   border: 24px solid white;
+  
 }
 
 /* Next & previous buttons */
