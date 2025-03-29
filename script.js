@@ -3,6 +3,8 @@ let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight
 const images = document.querySelectorAll("img");
 const totalImages = document.querySelectorAll("img").length
 let curImageDisplay;
+const modal = document.querySelector(".overlay")
+
 
 
 document.addEventListener("keydown", (e) => {
@@ -67,10 +69,6 @@ function imgtoDiv() {
         for (let column = 1; column <= columns; column++) {
             let image = i+column-1;
             
-            images.item(image).onload = function() {
-                console.log(this.width, this.naturalWidth);
-              }
-
             images.item(image).remove();
             if (images.item(image).id != "displayImage")     {
                 images.item(image).onclick = function() {displayImg(image)};
@@ -87,21 +85,14 @@ window.addEventListener("resize", () => {
     imgtoDiv();
  });
 
- imgtoDiv();
-
- function closeModal(e, clickedOutside) {
-    const modal = document.querySelector(".overlay")
-    console.log("close",clickedOutside)
-    if (clickedOutside) {
-        if (e.target.classList.contains("overlay"))
-            modal.classList.add("hide");
-    } else modal.classList.add("hide");
-}
-
+ function closeModal(e) {
+        //console.log("close",e.target)
+        modal.classList.add("hide");
+    }
+ 
 
  function displayImg(i) {
     curImageDisplay = i;
-    const modal = document.querySelector(".overlay")
     modal.innerHTML = `
     <p class="close" onclick="closeModal()">Esc</p>
     <a class="prev" onclick="prevImage()">&#10094;</a>
@@ -110,7 +101,11 @@ window.addEventListener("resize", () => {
     let displayImage = document.querySelector("#displayimage");
     displayImage.src = images.item(i).getAttribute("src").replace(/webp/g,"jpg");
     modal.classList.remove("hide");
-    //document.querySelector("#displayimage").onclick = closeModal();
+    displayImage.addEventListener("click", null);
+    modal.addEventListener("click", (e) => {
+        console.log((e.target.closest(displayImage)));
+        closeModal(e);
+    },false)
  }
 
 function nextImage() {
@@ -120,6 +115,7 @@ function prevImage() {
     displayImg((curImageDisplay + totalImages - 1) % totalImages);
 }
 
+imgtoDiv();
 
 
 
